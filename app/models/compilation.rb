@@ -4,5 +4,5 @@ class Compilation < ActiveRecord::Base
 
   validates_presence_of :user, :title
 
-  accepts_nested_attributes_for :tweets, :reject_if => lambda { |a| a[:link].blank? }
+  accepts_nested_attributes_for :tweets, :reject_if => lambda { |a| a[:link].blank? }, allow_destroy: true
 end

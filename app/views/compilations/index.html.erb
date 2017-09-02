@@ -8,6 +8,7 @@
 </div>
 <h1>top compilations of the week</h1>
 
-<% 10.times do |i| %>
-<li>compilation <%= i %></li>
+<% @compilations.each do |c| %>
+<li> <%= c.title %></li>
+<%= link_to c.title ,compilation_path(c)%>
 <% end %>

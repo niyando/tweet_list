@@ -11,7 +11,7 @@ class CompilationsController < ApplicationController
 
   def new
     @compilation = Compilation.new
-    3.times {@compilation.tweets.build}
+    @compilation.tweets.build
   end
 
   def create
@@ -51,7 +51,7 @@ class CompilationsController < ApplicationController
   end
 
   def compilation_params
-    params.require(:compilation).permit(:title, :description, tweets_attributes: [:id, :link, :title])
+    params.require(:compilation).permit(:title, :description, tweets_attributes: [:id, :link, :title, :_destroy])
   end
 
 end
