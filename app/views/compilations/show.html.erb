@@ -1,2 +1,7 @@
 <h2><%= @compilation.title %></h2>
 <h4><%= @compilation.description %></h4>
+
+<% @compilation.tweets.each do |t| %>
+  <li><%= t.title %></li>
+  <li><%= t.link %></li>
+<% end %>

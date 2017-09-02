@@ -3,4 +3,6 @@ class Compilation < ActiveRecord::Base
   has_many :tweets, dependent: :destroy
 
   validates_presence_of :user, :title
+
+  accepts_nested_attributes_for :tweets, :reject_if => lambda { |a| a[:link].blank? }
 end

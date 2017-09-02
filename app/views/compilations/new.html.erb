@@ -11,6 +11,16 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+
+  <%= f.fields_for :tweets do |builder| %>
+    <p>
+      <%= builder.label :link, "Tweet Link" %><br />
+      <%= builder.text_field :link %><br />
+      <%= builder.label :title, "Tweet Caption" %><br />
+      <%= builder.text_field :title %><br />
+    </p>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

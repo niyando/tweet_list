@@ -11,6 +11,7 @@ class CompilationsController < ApplicationController
 
   def new
     @compilation = Compilation.new
+    @compilation.tweets.build
   end
 
   def create
@@ -27,7 +28,7 @@ class CompilationsController < ApplicationController
   def edit;end
 
   def update
-    if @compilation.update_attributes(compilation_params)
+    if @compilation.update(compilation_params)
       redirect_to(@compilation, :notice => 'Successfully updated.')
     else
       render :action => "edit"
@@ -50,7 +51,7 @@ class CompilationsController < ApplicationController
   end
 
   def compilation_params
-    params.require(:compilation).permit(:title, :description)
+    params.require(:compilation).permit(:title, :description, tweets_attributes: [:id, :link, :title])
   end
 
 end
