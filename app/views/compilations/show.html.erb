@@ -3,5 +3,7 @@
 
 <% @compilation.tweets.each do |t| %>
   <li><%= t.title %></li>
-  <li><%= t.link %></li>
+  <blockquote class="twitter-tweet" data-lang="en"><a href="<%= t.link %>"></a></blockquote>
 <% end %>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

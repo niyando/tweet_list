@@ -11,7 +11,7 @@ class CompilationsController < ApplicationController
 
   def new
     @compilation = Compilation.new
-    @compilation.tweets.build
+    3.times {@compilation.tweets.build}
   end
 
   def create
