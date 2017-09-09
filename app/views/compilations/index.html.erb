@@ -1,12 +1,4 @@
-<div style="float:right">
-  <% if current_user.nil? %>
-    <a href="/auth/twitter">Sign in with Twitter</a>
-  <% else %>
-    <p>Signed in as, <%= current_user.name %></p>
-    <p><%= link_to "Sign out", signout_path %></p>
-  <% end %>
-</div>
-<h1>top compilations of the week</h1>
+
 
 <% @compilations.each do |c| %>
 <li> <%= c.title %></li>

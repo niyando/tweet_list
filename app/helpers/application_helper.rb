@@ -7,4 +7,9 @@ module ApplicationHelper
     end
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
+
+  def link_to_compile
+    current_user ? new_compilation_path : "/auth/twitter" 
+  end
+
 end
