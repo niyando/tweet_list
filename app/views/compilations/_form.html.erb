@@ -1,19 +1,32 @@
 <%= form_for(@compilation) do |f| %>
-
  
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+  <div class="row mb-4 border-bottom">
+    <div class="col-md-4">
+      <p>Compilation Details</p>
+    </div>
+    <div class="col-md-8">
+      <div class="field form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+      <div class="field form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control' %>
+      </div>      
+    </div>
   </div>
 
-  <%= f.fields_for :tweets do |builder| %>
-    <%= render 'tweet_fields', f: builder %>
-  <% end %>
-  <%= link_to_add_fields "Add Tweet", f, :tweets %>
+  <div class="row mb-4 border-bottom">
+    <div class="col-sm-4">
+      <p>Tweets Details</p>
+    </div>
+    <div class="col-sm-8">
+        <%= f.fields_for :tweets do |builder| %>
+          <%= render 'tweet_fields', f: builder %>
+        <% end %>
+        <%= link_to_add_fields "Add Tweet", f, :tweets %>
+    </div>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

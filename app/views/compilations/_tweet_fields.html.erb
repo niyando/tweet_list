@@ -1,10 +1,16 @@
-<fieldset>
-  <%= f.label :link, "Tweet Link" %><br />
-  <%= f.text_field :link %><br />
+<fieldset class="border-bottom pb-3">
 
-  <%= f.label :title, "Tweet Caption" %><br />
-  <%= f.text_field :title %><br />
+  <div class="form-group">
+    <%= f.label :link, "Tweet URL" %>
+    <%= f.text_field :link, class: 'form-control' %> 
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title, "Tweet Caption"%>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
 
   <%= f.hidden_field :_destroy %>
-  <%= link_to "remove", '#', class: "remove_fields" %>
+  <a href="#" class="btn btn-outline-danger btn-sm float-right remove_fields"> Remove Tweet </a>
+
 </fieldset>
