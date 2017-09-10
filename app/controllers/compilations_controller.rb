@@ -3,7 +3,7 @@ class CompilationsController < ApplicationController
   before_filter :authorize, except: [:index, :show]
 
   before_filter :set_compilation, except: [:index, :new, :create]
-  before_filter :can_modify_compilation?, except: [:index, :new, :create]
+  before_filter :can_modify_compilation?, except: [:index, :new, :create, :show]
 
   def index
     @compilations = Compilation.all

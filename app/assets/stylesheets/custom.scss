@@ -7,6 +7,15 @@ input[type="text"]:focus, textarea:focus {
   background-color : #F8F9FB !important; 
 }
 
-label,gray{
-  color: #777;
+label, .gray{
+  color: #777 !important;
+}
+
+fieldset:last-of-type{
+  border: none;
+}
+
+.rm-tweet{
+  position:relative;
+  bottom:2px; 
 }

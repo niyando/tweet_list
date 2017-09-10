@@ -20,4 +20,19 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      compilation:
+        title: "Compilation title"
+      tweets:
+        link: "Twitter URL"
+    errors:
+      models:
+        compilation:
+          attributes:
+            title:
+              blank: "is required"
+        tweet:
+          attributes:
+            link:
+              format: "format is invalid"

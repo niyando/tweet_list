@@ -1,12 +1,21 @@
 <%= form_for(@compilation) do |f| %>
  
-  <div class="row mb-4 border-bottom">
+  <% if @compilation.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <% @compilation.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </div>
+  <% end %>
+ 
+  <div class="row mb-4 pb-2 border-bottom">
     <div class="col-md-4">
-      <p>Compilation Details</p>
+      <p class="mb-0">Compilation Details</p>
+      <small class="text-muted">Tell us what your compilation is all about.</small>
     </div>
     <div class="col-md-8">
       <div class="field form-group">
-        <%= f.label :title %>
+        <%= f.label :title %> <span class="text-danger">*</span>
         <%= f.text_field :title, class: 'form-control' %>
       </div>
       <div class="field form-group">
@@ -16,20 +25,25 @@
     </div>
   </div>
 
-  <div class="row mb-4 border-bottom">
+  <div class="row mb-4 pb-2 border-bottom">
     <div class="col-sm-4">
-      <p>Tweets Details</p>
+      <p class="mb-0">Tweets Details</p>
+      <small class="text-muted">Add tweets to this compilation.</small>
     </div>
     <div class="col-sm-8">
         <%= f.fields_for :tweets do |builder| %>
           <%= render 'tweet_fields', f: builder %>
         <% end %>
-        <%= link_to_add_fields "Add Tweet", f, :tweets %>
+        
+        <%= link_to_add_fields "+ Add more Tweets", f, :tweets %>
+        
     </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions float-right">
+    <a class="btn btn-secondary" href="<%= @compilation.new_record? ? '/' : compilation_path(@compilation.id) %>">Cancel</a>
+    <% btn_name = @compilation.new_record? ? "Create" : "Save" %>
+    <%= f.submit btn_name, class:"btn btn-primary" %>
   </div>
 
 

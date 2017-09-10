@@ -1,7 +1,10 @@
-<fieldset class="border-bottom pb-3">
+<fieldset class="py-3 border-bottom">
+
+  <%= f.hidden_field :_destroy %>
+  <a href="#" class="btn btn-outline-secondary btn-sm float-right remove_fields mb-2 rm-tweet"> Remove</a>
 
   <div class="form-group">
-    <%= f.label :link, "Tweet URL" %>
+    <%= f.label :link, "Tweet URL" %> <span class="text-danger">*</span>
     <%= f.text_field :link, class: 'form-control' %> 
   </div>
 
@@ -10,7 +13,6 @@
     <%= f.text_field :title, class: 'form-control' %>
   </div>
 
-  <%= f.hidden_field :_destroy %>
-  <a href="#" class="btn btn-outline-danger btn-sm float-right remove_fields"> Remove Tweet </a>
+
 
 </fieldset>
