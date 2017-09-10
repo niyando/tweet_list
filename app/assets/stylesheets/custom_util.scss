@@ -11,3 +11,13 @@
 .text-s{
   font-size: 14px;
 }
+
+a.nostyle{
+    color: #428BCA;
+    text-decoration: none;
+}
+
+a.nostyle:hover, a.nostyle:focus {
+    color: #2A6496;
+    text-decoration: underline;
+}
