@@ -25,7 +25,7 @@ en:
       compilation:
         title: "Compilation title"
       tweets:
-        link: "Twitter URL"
+        link: "Tweet URL"
     errors:
       models:
         compilation:
