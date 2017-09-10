@@ -5,4 +5,9 @@ class Compilation < ActiveRecord::Base
   validates_presence_of :user, :title
 
   accepts_nested_attributes_for :tweets, :reject_if => lambda { |a| a[:link].blank? }, allow_destroy: true
+
+  def to_param
+    [id, title.parameterize].join("-")
+  end
+
 end
