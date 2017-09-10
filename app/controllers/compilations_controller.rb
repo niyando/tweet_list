@@ -36,6 +36,8 @@ class CompilationsController < ApplicationController
   end
 
   def destroy
+    @compilation.destroy
+    redirect_to root_url
   end
 
   private
@@ -46,7 +48,7 @@ class CompilationsController < ApplicationController
 
   def can_modify_compilation?
     unless current_user.id == @compilation.user.id
-      # redirect and show error
+      redirect_to(@compilation, :error => 'Permission Denied.')
     end
   end
 

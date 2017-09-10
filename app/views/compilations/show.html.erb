@@ -1,9 +1,23 @@
-<h2><%= @compilation.title %></h2>
-<h4><%= @compilation.description %></h4>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<% @compilation.tweets.each do |t| %>
-  <li><%= t.title %></li>
-  <blockquote class="twitter-tweet" data-lang="en"><a href="<%= t.link %>"></a></blockquote>
+<div class="my-4 border-bottom">
+  <h3><%= @compilation.title %></h3>
+  <p><%= @compilation.description %></p>  
+
+<% if current_user && current_user.id == @compilation.user.id %>
+<div class="float-right my-2">
+  <%= link_to 'Edit', edit_compilation_path(@compilation), class:"btn btn-outline-primary" %>
+  <%= link_to "Delete", compilation_path(@compilation), method: :delete, data: { confirm: 'Are you certain you want to delete this compilation?' }, class: "btn btn-outline-danger" %>
+</div>
 <% end %>
 
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+
+
+<% @compilation.tweets.each do |t| %>
+  <div class="my-4">
+    <p><%= t.title %></p>
+    <blockquote class="twitter-tweet" data-lang="en"><a href="<%= t.link %>"></a></blockquote>
+  </div>
+<% end %>
