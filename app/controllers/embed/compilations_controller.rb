@@ -8,6 +8,7 @@ class Embed::CompilationsController < ActionController::Base
 
   def set_compilation
     @compilation = Compilation.find params[:id]
+    response.headers.delete "X-Frame-Options"
   end
 
 end
