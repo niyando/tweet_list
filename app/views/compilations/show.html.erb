@@ -19,14 +19,17 @@
 </div>
 <% end %>
 
+<div class="border-bottom">
+&nbsp;  
+</div>
 <div class="my-4">
-  <p><a id="embed" class="btn btn-secondary" href="#">Embed compilation</a></p>
+  <p><a id="embed" class="btn btn-secondary" href="#">Embed</a></p>
   <div id="embed_code" style="display:none;">
-    <p>Copy the code below to embed compilation to your website.</p>
+    <p>Copy and paste the code below to embed this compilation to your website.</p>
     <div style="background-color:#F8F9FB;">
-      <pre><code id="embed">
+      <code id="embed">
       &lt;iframe src="<%= embed_compilation_url @compilation %>" frameborder="0" width="500px;" height="XYZpx;"&gt;&lt;/iframe&gt;
-      </code></pre>
+      </code>
     </div>
   </div>
 </div>
@@ -39,6 +42,7 @@
       text = code.text();
       code.text(text.replace('XYZ',document.body.clientHeight-150));
       $('div#embed_code').show();
+      $('html, body').scrollTop( $(document).height() );
     })
   })
 </script>
