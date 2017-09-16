@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :compilations
+
+  namespace :embed do
+    resources :compilations, only: :show
+  end
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
