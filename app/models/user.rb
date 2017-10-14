@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
   has_many :compilations, dependent: :destroy
+
+  has_many :favourite_compilations, dependent: :destroy
+  has_many :favourites, through: :favourite_compilations, source: :compilation
+
   validates_presence_of :provider, :uid
   validates :provider, uniqueness: { scope: :uid }
 

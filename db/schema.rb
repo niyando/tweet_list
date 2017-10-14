@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170902074931) do
+ActiveRecord::Schema.define(version: 20171014121937) do
 
   create_table "compilations", force: :cascade do |t|
     t.integer  "user_id",     limit: 4
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20170902074931) do
   end
 
   add_index "compilations", ["user_id"], name: "index_compilations_on_user_id", using: :btree
+
+  create_table "favourite_compilations", force: :cascade do |t|
+    t.integer  "user_id",        limit: 4
+    t.integer  "compilation_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "favourite_compilations", ["compilation_id"], name: "fk_rails_440fb69f3c", using: :btree
+  add_index "favourite_compilations", ["user_id", "compilation_id"], name: "user_fav", unique: true, using: :btree
 
   create_table "tweets", force: :cascade do |t|
     t.integer  "compilation_id", limit: 4
@@ -44,5 +54,7 @@ ActiveRecord::Schema.define(version: 20170902074931) do
   end
 
   add_foreign_key "compilations", "users"
+  add_foreign_key "favourite_compilations", "compilations"
+  add_foreign_key "favourite_compilations", "users"
   add_foreign_key "tweets", "compilations"
 end
