@@ -13,3 +13,17 @@ jQuery ->
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
+
+  $('a#embed').on 'click', (e) ->
+    e.preventDefault()
+    code = $('code#embed')
+    text = code.text()
+    code.text text.replace('XYZ', document.body.clientHeight - 150)
+    $('div#embed_code').show()
+    $('html, body').scrollTop $(document).height()
+    return
+
+  $('a#fbshare').click (e) ->
+    e.preventDefault()
+    window.open $(this).attr('href'), 'fbShareWindow', 'height=450, width=550, toolbar=0, location=0, menubar=0, directories=0, scrollbars=0'
+    false

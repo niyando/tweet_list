@@ -46,22 +46,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  $(document).ready(function(){
-    $('a#embed').on('click',function(e){
-      e.preventDefault();
-      var code = $('code#embed');
-      text = code.text();
-      code.text(text.replace('XYZ',document.body.clientHeight-150));
-      $('div#embed_code').show();
-      $('html, body').scrollTop( $(document).height() );
-    });
-
-    $('a#fbshare').click(function(e) {
-      e.preventDefault();
-      window.open($(this).attr('href'), 'fbShareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
-      return false;
-    });
-  })
-</script>
