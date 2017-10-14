@@ -16,4 +16,8 @@ module ApplicationHelper
     "https://twitter.com/intent/tweet?text=#{CGI.escape(c.title)}&url=#{CGI.escape(compilation_url(c))}&via=tweetbaba"
   end
 
+  def fb_intent(c)
+    "https://www.facebook.com/sharer/sharer.php?u=#{CGI.escape(compilation_url(c))}"
+  end
+
 end

@@ -1,5 +1,14 @@
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+<% content_for :head do %>
+<meta property="og:url" content="<%= compilation_url(@compilation) %>" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="<%= @compilation.title %>" />
+<meta property="og:description" content="<%= @compilation.description %>" />
+<meta property="og:image" content="http://www.onlinemoneyblog.com.ng/wp-content/uploads/2015/11/2.jpg" />
+<% end %>
+
+
 <div class="my-4 border-bottom">
   <h3><%= @compilation.title %></h3>
   <p><%= @compilation.description %></p>  
@@ -25,6 +34,7 @@
 <div class="my-4">
   <p>
     <a href="<%= tweet_intent(@compilation) %>" class="btn btn-primary">Share on Twitter</a>
+    <a id="fbshare" href="<%= fb_intent(@compilation) %>" class="btn btn-primary">Share on Facebook</a>
     <a id="embed" class="btn btn-secondary" href="#">Embed</a>
   </p>
   <div id="embed_code" style="display:none;">
@@ -46,6 +56,12 @@
       code.text(text.replace('XYZ',document.body.clientHeight-150));
       $('div#embed_code').show();
       $('html, body').scrollTop( $(document).height() );
-    })
+    });
+
+    $('a#fbshare').click(function(e) {
+      e.preventDefault();
+      window.open($(this).attr('href'), 'fbShareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+      return false;
+    });
   })
 </script>
