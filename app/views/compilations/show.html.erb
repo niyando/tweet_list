@@ -29,18 +29,19 @@
 <% end %>
 
 
-<div class="my-4 border-top">
+<div id="footer-btns" class="my-4 border-top">
   <p>
-    <div class="fave">
-      <a href="" class="faveicons" id="fave">
-        <i class="fa fa-heart" aria-hidden="true"></i>&nbsp;
-        <span class="fav-count">23</span>
-      </a>
-      
-      <a href="" class="faveicons" id="unfave">
-        <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;
-        <span class="fav-count">23</span>
-      </a>
+    <div id="fave">
+      <% if current_user.present? %>
+        <a href="" class="faveicons" id="fave">
+          <i class="fa fa-heart-o" aria-hidden="true"></i>
+        </a>
+      <% else %>
+      <a href="/auth/twitter" class="faveicons">
+          <i class="fa fa-heart-o" aria-hidden="true"></i>
+        </a>
+      <% end %>
+      <span class="fav-count">23</span>
     </div>
 
     <a href="<%= tweet_intent(@compilation) %>" class="btn btn-primary">
@@ -62,3 +63,7 @@
     </div>
   </div>
 </div>
+
+<%= javascript_tag do %>
+  window.compilation_id = "<%= @compilation.id %>";
+<% end %>

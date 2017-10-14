@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :compilations do
     put :favourite, on: :member
+    get :favourite_data, on: :member
   end
 
   namespace :embed do
