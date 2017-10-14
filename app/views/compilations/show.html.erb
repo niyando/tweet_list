@@ -28,13 +28,29 @@
 </div>
 <% end %>
 
-<div class="border-bottom">
-&nbsp;  
-</div>
-<div class="my-4">
+
+<div class="my-4 border-top">
   <p>
-    <a href="<%= tweet_intent(@compilation) %>" class="btn btn-primary">Share on Twitter</a>
-    <a id="fbshare" href="<%= fb_intent(@compilation) %>" class="btn btn-primary">Share on Facebook</a>
+    <div class="fave">
+      <a href="" class="faveicons" id="fave">
+        <i class="fa fa-heart" aria-hidden="true"></i>&nbsp;
+        <span class="fav-count">23</span>
+      </a>
+      
+      <a href="" class="faveicons" id="unfave">
+        <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;
+        <span class="fav-count">23</span>
+      </a>
+    </div>
+
+    <a href="<%= tweet_intent(@compilation) %>" class="btn btn-primary">
+      <i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;
+      Share on Twitter
+    </a>
+    <a id="fbshare" href="<%= fb_intent(@compilation) %>" class="btn btn-primary">
+      <i class="fa fa-facebook" aria-hidden="true"></i>&nbsp;
+      Share on Facebook
+    </a>
     <a id="embed" class="btn btn-secondary" href="#">Embed this to your website</a>
   </p>
   <div id="embed_code" style="display:none;">

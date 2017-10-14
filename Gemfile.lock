@@ -61,6 +61,8 @@ GEM
       dotenv (= 1.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     hashie (3.5.6)
@@ -171,6 +173,7 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.beta)
   coffee-rails (~> 4.1.0)
   dotenv-rails
+  font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
   mysql2 (>= 0.3.13, < 0.5)

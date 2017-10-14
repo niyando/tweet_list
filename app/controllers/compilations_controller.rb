@@ -3,7 +3,7 @@ class CompilationsController < ApplicationController
   before_filter :authorize, except: [:index, :show]
 
   before_filter :set_compilation, except: [:index, :new, :create]
-  before_filter :can_modify_compilation?, except: [:index, :new, :create, :show]
+  before_filter :can_modify_compilation?, except: [:index, :new, :create, :show, :favourite]
 
   def index
     @compilations = Compilation.all
@@ -23,7 +23,9 @@ class CompilationsController < ApplicationController
     end
   end
 
-  def show;end
+  def show
+    @fave_count = @compilation.favourited_by.count
+  end
 
   def edit;end
 
@@ -38,6 +40,15 @@ class CompilationsController < ApplicationController
   def destroy
     @compilation.destroy
     redirect_to root_url
+  end
+
+  def favourite
+    if params[:type] == "fave"
+      current_user.favourites << @compilation
+    else
+      current_user.favourites.delete @compilation
+    end
+    render json: {count: @compilations.favourited_by.count}
   end
 
   private

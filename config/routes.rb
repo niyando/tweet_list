@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
-  resources :compilations
+  resources :compilations do
+    put :favourite, on: :member
+  end
 
   namespace :embed do
     resources :compilations, only: :show
