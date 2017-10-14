@@ -12,4 +12,8 @@ module ApplicationHelper
     current_user ? new_compilation_path : "/auth/twitter" 
   end
 
+  def tweet_intent(c)
+    "https://twitter.com/intent/tweet?text=#{CGI.escape(c.title)}&url=#{CGI.escape(compilation_url(c))}&via=tweetbaba"
+  end
+
 end
