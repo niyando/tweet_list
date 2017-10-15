@@ -4,14 +4,15 @@
 
 jQuery ->
 
-  fave = $('div#fave')
-  $.get('/compilations/'+compilation_id+'/favourite_data.json').then (r) ->
-    fave.find('span.fav-count').text r.count
-    if r.fave_status
-      icon = $('a#fave i')
-      icon.removeClass 'fa-heart-o'
-      icon.addClass 'fa-heart'
-    return
+  if compilation_id
+    fave = $('div#fave')
+    $.get('/compilations/'+compilation_id+'/favourite_data.json').then (r) ->
+      fave.find('span.fav-count').text r.count
+      if r.fave_status
+        icon = $('a#fave i')
+        icon.removeClass 'fa-heart-o'
+        icon.addClass 'fa-heart'
+      return
 
   $('form').on 'click', '.remove_fields', (event) ->
     $(this).prev('input[type=hidden]').val('1')

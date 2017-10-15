@@ -29,4 +29,9 @@
 </div>
 
 </body>
+
+<%= javascript_tag do %>
+  window.compilation_id = "<%= @compilation ? @compilation.id : nil %>";
+<% end %>
+
 </html>
