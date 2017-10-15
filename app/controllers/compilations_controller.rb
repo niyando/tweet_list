@@ -7,6 +7,11 @@ class CompilationsController < ApplicationController
 
   def index
     @compilations = Compilation.all
+    if params[:sort] == "new"
+      @compilations = @compilations.order('id DESC')
+    else
+      @compilations = @compilations.order('fave_count DESC')
+    end
   end
 
   def new
@@ -46,11 +51,11 @@ class CompilationsController < ApplicationController
     else
       current_user.favourites.delete @compilation
     end
-    render json: {count: @compilation.favourited_by.count}
+    render json: {count: @compilation.fave_count}
   end
 
   def favourite_data
-    count = @compilation.favourited_by.count
+    count = @compilation.fave_count
     fave = current_user ? current_user.favourites.find_by(id: @compilation.id).present? : false
     render json: {count: count, fave_status: fave}
   end

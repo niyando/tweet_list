@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171014121937) do
+ActiveRecord::Schema.define(version: 20171015062650) do
 
   create_table "compilations", force: :cascade do |t|
     t.integer  "user_id",     limit: 4
     t.string   "title",       limit: 255
     t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "fave_count",  limit: 4,     default: 0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   add_index "compilations", ["user_id"], name: "index_compilations_on_user_id", using: :btree
