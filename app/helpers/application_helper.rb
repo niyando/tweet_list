@@ -9,7 +9,12 @@ module ApplicationHelper
   end
 
   def link_to_compile
-    current_user ? new_compilation_path : "/auth/twitter" 
+    current_user ? new_compilation_path : twitter_auth_url(new_compilation_url)
+  end
+
+  def twitter_auth_url(url = nil)
+    redirect_url = url || request.original_url
+    "/auth/twitter/?redirect_to=" + CGI.escape(redirect_url)
   end
 
   def tweet_intent(c)

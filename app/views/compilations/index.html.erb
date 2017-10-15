@@ -1,11 +1,11 @@
 
 <% @compilations.each do |c| %>
-<div class="media my-4">
+<div class="media my-3 py-2">
   <img class="d-flex mr-3 rounded" src="<%= c.user.image_url %>" alt="<%= c.user.nickname %>">
   <div class="media-body">
-    <h5 class="mt-0">
-      <%= link_to c.title, compilation_path(c), class:'nostyle' %>
-    </h5>
+    <div>
+      <%= link_to c.title, compilation_path(c), class:'nostyle text-l' %>
+    </div>
     <%= c.description %>
   </div>
 </div>
