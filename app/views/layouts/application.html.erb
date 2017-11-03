@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-  <a class="navbar-brand" href="/">TweetBaba</a>
+  <a class="navbar-brand" href="/">Titoree</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,7 +19,7 @@
       <a class="nav-item nav-link <%= 'active' if params[:sort] == 'new'%>" href="/compilations?sort=new">New</span></a>
     </div>
     <div class="navbar-nav ml-auto">
-      <a class="btn btn-outline-light bg-transparent" href="<%= link_to_compile %>">+ Create</a>
+      <a class="btn btn-md btn-outline-light bg-transparent" href="<%= link_to_compile %>">Create</a>
     </div>
   </div>
 </nav>
