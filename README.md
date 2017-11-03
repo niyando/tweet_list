@@ -1,6 +1,6 @@
 # Tweet List
 
-[![Heroku](http://heroku-badge.herokuapp.com/?app=tweetbaba&style=flat&svg=1)]
+[![Heroku](http://heroku-badge.herokuapp.com/?app=angularjs-crypto&style=flat&svg=1)](https://tweetbaba.herokuapp.com/)
 
 Simple Rails application to create compilations/short stories using embedded tweets.
 
