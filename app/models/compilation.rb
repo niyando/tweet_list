@@ -1,7 +1,7 @@
 class Compilation < ActiveRecord::Base
   belongs_to :user
   has_many :tweets, dependent: :destroy
-  has_many :favourite_compilations
+  has_many :favourite_compilations, dependent: :destroy
   has_many :favourited_by, through: :favourite_compilations, source: :user
 
   validates_presence_of :user, :title

@@ -24,7 +24,7 @@
 <% @compilation.tweets.each do |t| %>
 <div class="my-4">
   <p><%= t.title %></p>
-  <blockquote class="twitter-tweet" data-lang="en"><a href="<%= t.link %>"></a></blockquote>
+  <blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><a href="<%= t.link %>"></a></blockquote>
 </div>
 <% end %>
 
