@@ -5,7 +5,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:title" content="<%= @compilation.title %>" />
 <meta property="og:description" content="<%= @compilation.description %>" />
-<meta property="og:image" content="http://www.onlinemoneyblog.com.ng/wp-content/uploads/2015/11/2.jpg" />
+<meta property="og:image" content="<%= asset_url('images/titoree_350.png') %>" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@titoree_tweets" />
+<meta name="twitter:title" content="<%= @compilation.title %>" />
+<meta name="twitter:description" content="<%= @compilation.description %>" />
+<meta name="twitter:image" content="<%= asset_url('images/titoree_350.png') %>" />
+
 <% end %>
 
 
